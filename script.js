@@ -91,5 +91,3 @@ function resetFields() {
     document.getElementById("purchase-values-list").innerHTML = "";
     document.getElementById("total-investment").textContent = "N/A";
 }
-
-</script>
