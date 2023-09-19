@@ -46,9 +46,9 @@ function calculateAverage() {
     const averagePrice = totalValueSum / totalShares;
     
     const purchaseValues = purchases.map((purchase, index) => `Purchase Value for ${index + 1} Buy: ${purchase.price * purchase.quantity}`);
-    const totalInvestment = purchaseValues.reduce((total, value) => total + value, "");
+    const totalInvestment = purchaseValues.reduce((total, value) => total + (parseFloat(value.split(": ")[1])), 0); // Summing the purchase values
 
     document.getElementById("average-price").textContent = averagePrice.toFixed(2);
     document.getElementById("purchase-values-list").innerHTML = purchaseValues.map(value => `<li>${value}</li>`).join("");
-    document.getElementById("total-investment").textContent = totalInvestment;
+    document.getElementById("total-investment").innerHTML = `<span class="bold">Total Investment:</span> ${totalInvestment.toFixed(2)}`; // Making Total Investment bold
 }
