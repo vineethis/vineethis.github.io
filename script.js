@@ -12,17 +12,7 @@ function addPurchase() {
 
     const purchaseRow = document.createElement("div");
     purchaseRow.classList.add("purchase-row");
-    
-    // Create new labels for each purchase
-    const priceLabel = document.createElement("label");
-    priceLabel.textContent = "Price:";
-    
-    const quantityLabel = document.createElement("label");
-    quantityLabel.textContent = "Quantity:";
-    
-    purchaseRow.appendChild(priceLabel);
     purchaseRow.appendChild(priceInput);
-    purchaseRow.appendChild(quantityLabel);
     purchaseRow.appendChild(quantityInput);
 
     document.getElementById("purchase-inputs").appendChild(purchaseRow);
