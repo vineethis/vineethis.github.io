@@ -1,17 +1,25 @@
 let purchases = [];
 
-function calculateAverage() {
-    const date = document.getElementById("date").value;
+function addPurchase() {
     const price = parseFloat(document.getElementById("price").value);
     const quantity = parseInt(document.getElementById("quantity").value);
 
-    if (!date || isNaN(price) || isNaN(quantity)) {
-        alert("Please enter valid values for date, price, and quantity.");
+    if (isNaN(price) || isNaN(quantity)) {
+        alert("Please enter valid values for price and quantity.");
         return;
     }
 
-    const totalValue = price * quantity;
-    purchases.push({ date, price, quantity });
+    purchases.push({ price, quantity });
+
+    document.getElementById("price").value = ""; // Clear input fields
+    document.getElementById("quantity").value = "";
+}
+
+function calculateAverage() {
+    if (purchases.length === 0) {
+        alert("Please add at least one purchase.");
+        return;
+    }
 
     const totalShares = purchases.reduce((total, purchase) => total + purchase.quantity, 0);
     const totalValueSum = purchases.reduce((total, purchase) => total + (purchase.price * purchase.quantity), 0);
