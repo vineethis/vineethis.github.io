@@ -62,8 +62,8 @@ function calculateAverage() {
     document.getElementById("total-investment").textContent = totalInvestment.toFixed(2);
 
     // Create a string containing the purchase values for display
-    const purchaseValues = purchases.map((purchase, index) => `Purchase Value for ${index + 1} Buy: ${(purchase.price * purchase.quantity).toFixed(2)}`);
-    
+    const purchaseValues = purchases.map((purchase, index) => `Purchase Value for ${index + 1} Buy: ${(purchase.price * purchase.quantity).toFixed(2)});
+
     // Display the purchase values as a list
     document.getElementById("purchase-values-list").innerHTML = "";
     purchaseValues.forEach(value => {
@@ -74,12 +74,20 @@ function calculateAverage() {
 }
 
 function resetFields() {
+    // Remove all additional input fields created for purchases
+    const purchaseRows = document.querySelectorAll(".purchase-row");
+    purchaseRows.forEach(row => {
+        row.remove();
+    });
+
     const inputFields = document.querySelectorAll(".input-field");
     inputFields.forEach(field => {
         field.value = ""; // Clear input fields
     });
     purchases = []; // Clear purchases
+
+    // Clear the calculation results
     document.getElementById("average-price").textContent = "N/A";
-    document.getElementById("purchase-values-list").innerHTML = ""; // Clear the list
+    document.getElementById("purchase-values-list").innerHTML = "";
     document.getElementById("total-investment").textContent = "N/A";
 }
