@@ -1,85 +1,79 @@
-let purchases = [];
-
-function addPurchase() {
-    const priceInput = document.createElement("input");
-    priceInput.type = "number";
-    priceInput.classList.add("input-field");
-    priceInput.step = "0.01";
-
-    const quantityInput = document.createElement("input");
-    quantityInput.type = "number";
-    quantityInput.classList.add("input-field");
-
-    const purchaseRow = document.createElement("div");
-    purchaseRow.classList.add("purchase-row");
-
-    // Create new labels for each purchase
-    const priceLabel = document.createElement("label");
-    priceLabel.textContent = "Price:";
-
-    const quantityLabel = document.createElement("label");
-    quantityLabel.textContent = "Quantity:";
-
-    purchaseRow.appendChild(priceLabel);
-    purchaseRow.appendChild(priceInput);
-    purchaseRow.appendChild(quantityLabel);
-    purchaseRow.appendChild(quantityInput);
-
-    document.getElementById("purchase-inputs").appendChild(purchaseRow);
+/* Reset some default styles */
+body, h1, p, label, input, button {
+    margin: 0;
+    padding: 0;
 }
 
-function calculateAverage() {
-    const priceInputs = document.querySelectorAll(".input-field");
-
-    if (priceInputs.length === 0) {
-        alert("Please add at least one purchase.");
-        return;
-    }
-
-    purchases = [];
-
-    for (let i = 0; i < priceInputs.length; i += 2) {
-        const price = parseFloat(priceInputs[i].value);
-        const quantity = parseInt(priceInputs[i + 1].value);
-
-        if (isNaN(price) || isNaN(quantity)) {
-            alert("Please enter valid values for price and quantity.");
-            return;
-        }
-
-        purchases.push({ price, quantity });
-    }
-
-    const totalShares = purchases.reduce((total, purchase) => total + purchase.quantity, 0);
-    const totalValueSum = purchases.reduce((total, purchase) => total + (purchase.price * purchase.quantity), 0);
-
-    const averagePrice = totalValueSum / totalShares;
-    const totalInvestment = totalValueSum; // Total investment is the sum of all purchases
-
-    document.getElementById("average-price").textContent = averagePrice.toFixed(2);
-
-    // Display the total investment as a single value
-    document.getElementById("total-investment").textContent = totalInvestment.toFixed(2);
-
-    // Create a string containing the purchase values for display
-    const purchaseValues = purchases.map((purchase, index) => `Purchase Value for ${index + 1} Buy: ${(purchase.price * purchase.quantity).toFixed(2)}`);
-    
-    // Display the purchase values as a list
-    document.getElementById("purchase-values-list").innerHTML = "";
-    purchaseValues.forEach(value => {
-        const li = document.createElement("li");
-        li.textContent = value;
-        document.getElementById("purchase-values-list").appendChild(li);
-    });
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0; /* Light blue background */
+    text-align: center;
 }
 
-function resetFields() {
-    const inputFields = document.querySelectorAll(".input-field");
-    inputFields.forEach(field => {
-        field.value = ""; // Clear input fields
-    });
-    purchases = []; // Clear purchases
-    document.getElementById("average-price").textContent = "N/A";
-    document.getElementById("purchase-values-list").innerHTML = ""; // Clear the list
-    document.getElementById("total-investment").textContent = "N/A";
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+.purchase-row {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+    margin-right: 10px;
+    /* Remove "font-weight: bold;" */
+}
+
+.input-field {
+    width: 200px; /* Increased width to 200px */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#result-container {
+    margin-top: 20px;
+}
+
+#average-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+#purchase-values-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#purchase-values-list li {
+    /* Remove "font-weight: bold;" */
+    color: #333;
 }
