@@ -3,18 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interest Rate and EMI Calculator</title>
+    <title>EMI Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Interest Rate and EMI Calculator</h1>
+        <h1>EMI Calculator</h1>
     </header>
     <main>
-        <!-- Add your interest rate and EMI calculation content here -->
+        <div class="input-container">
+            <label for="loan-amount">Loan Amount (in USD):</label>
+            <input type="number" id="loan-amount" class="input-field">
+            <label for="interest-rate">Interest Rate (% per annum):</label>
+            <input type="number" id="interest-rate" class="input-field">
+            <button onclick="calculateEMI()">Calculate EMI</button>
+        </div>
+        <div id="result-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Principal (USD)</th>
+                        <th>Interest (USD)</th>
+                        <th>Total Payment (USD)</th>
+                    </tr>
+                </thead>
+                <tbody id="emi-details">
+                    <!-- EMI calculation results will be displayed here -->
+                </tbody>
+            </table>
+        </div>
     </main>
     <footer>
-        <p>&copy; 2023 </p>
+        <p>&copy; 2023 EMI Calculator</p>
+    </footer>
+    <script src="script.js"></script>
         <a href="index.html">Back to Share Price Calculator</a>
     </footer>
 </body>
