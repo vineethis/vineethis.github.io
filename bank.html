@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container">
+        <a href="index.html" class="back-link">Back to Stock Average Price Calculator</a> <!-- Move the link to the top right corner -->
         <h1>EMI Calculator</h1>
         <div class="calculator">
             <label for="loan-amount">Loan Amount:</label>
@@ -24,6 +25,10 @@
             <button onclick="calculateEMI()" class="calculate-button">Calculate EMI</button>
         </div>
         <div id="result-container">
+            <div class="emi-summary">
+                <p>Total Interest Amount: <span id="total-interest-amount">0.00</span></p>
+                <p>Total Amount to be Paid: <span id="total-amount-to-pay">0.00</span></p>
+            </div>
             <table class="emi-table">
                 <thead>
                     <tr>
@@ -38,7 +43,7 @@
                 </tbody>
             </table>
         </div>
-        <a href="index.html" class="back-link">Back to Stock Average Price Calculator</a>
+        <button onclick="exportToCSV('emi-details')" class="download-button">Download CSV</button>
     </div>
     <script src="script.js"></script>
 </body>
