@@ -102,4 +102,3 @@ function calculateEMI() {
         emiDetailsContainer.appendChild(row);
     }
 }
-
