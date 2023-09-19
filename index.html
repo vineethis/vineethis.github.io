@@ -9,13 +9,12 @@
 <body>
     <h1>Share Price Calculator</h1>
     <div class="input-container">
-        <label for="date">Date:</label>
-        <input type="date" id="date">
         <label for="price">Price:</label>
         <input type="number" id="price" step="0.01">
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity">
-        <button onclick="calculateAverage()">Add Purchase</button>
+        <button onclick="addPurchase()">Add Purchase</button>
+        <button onclick="calculateAverage()">Compute Average</button>
     </div>
     <div id="result-container">
         <p>Average Share Price: <span id="average-price">N/A</span></p>
