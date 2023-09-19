@@ -34,6 +34,7 @@ label {
     width: 80px;
     text-align: right;
     margin-right: 10px;
+    /* Remove "font-weight: bold;" */
 }
 
 .input-field {
@@ -73,5 +74,6 @@ button:hover {
 }
 
 #purchase-values-list li {
+    /* Remove "font-weight: bold;" */
     color: #333;
 }
