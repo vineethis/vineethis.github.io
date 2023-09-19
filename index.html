@@ -10,12 +10,11 @@
     <h1>Share Price Calculator</h1>
     <div class="input-container">
         <div id="purchase-inputs">
-            <!-- Initial input fields for the first purchase -->
             <div class="purchase-row">
                 <label for="price">Price:</label>
-                <input type="number" class="price" step="0.01">
+                <input type="number" class="input-field" step="0.01">
                 <label for="quantity">Quantity:</label>
-                <input type="number" class="quantity">
+                <input type="number" class="input-field">
             </div>
         </div>
         <button onclick="addPurchase()">Add Purchase</button>
@@ -23,6 +22,8 @@
     </div>
     <div id="result-container">
         <p>Average Share Price: <span id="average-price">N/A</span></p>
+        <p>Purchase Values: <span id="purchase-values"></span></p>
+        <p>Total Investment: <span id="total-investment"></span></p>
     </div>
     <script src="script.js"></script>
 </body>
