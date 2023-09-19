@@ -84,14 +84,19 @@ function calculateEMI() {
     const emi = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfMonths));
 
     const emiDetailsContainer = document.getElementById("emi-details");
+    const totalInterestAmountElement = document.getElementById("total-interest-amount");
+    const totalAmountToPayElement = document.getElementById("total-amount-to-pay");
+    
     emiDetailsContainer.innerHTML = ""; // Clear previous results
 
     let loanBalance = loanAmount;
-
+    let totalInterestAmount = 0;
+    
     for (let month = 1; month <= numberOfMonths; month++) {
         const monthlyInterest = loanBalance * monthlyInterestRate;
         const monthlyPrincipal = emi - monthlyInterest;
         loanBalance -= monthlyPrincipal;
+        totalInterestAmount += monthlyInterest;
 
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -103,5 +108,27 @@ function calculateEMI() {
 
         emiDetailsContainer.appendChild(row);
     }
+
+    totalInterestAmountElement.textContent = totalInterestAmount.toFixed(2);
+    totalAmountToPayElement.textContent = (loanAmount + totalInterestAmount).toFixed(2);
 }
 
+function exportToCSV(tableId) {
+    const table = document.getElementById(tableId);
+    const rows = table.querySelectorAll("tr");
+    const csv = [];
+    
+    for (const row of rows) {
+        const cols = row.querySelectorAll("td, th");
+        const rowData = Array.from(cols).map(col => col.textContent);
+        csv.push(rowData.join(","));
+    }
+
+    const csvContent = "data:text/csv;charset=utf-8," + csv.join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "emi_data.csv");
+    document.body.appendChild(link);
+    link.click();
+}
