@@ -67,3 +67,37 @@ function calculateAverage() {
     document.getElementById("purchase-values-list").innerHTML = purchaseValues.map(value => `<li>${value}</li>`).join("");
     document.getElementById("total-investment").innerHTML = `<span class="bold">Total Investment:</span> ${totalInvestment.toFixed(2)}`;
 }
+
+function calculateEMI() {
+    const loanAmount = parseFloat(document.getElementById("loan-amount").value);
+    const interestRate = parseFloat(document.getElementById("interest-rate").value);
+    
+    if (isNaN(loanAmount) || isNaN(interestRate)) {
+        alert("Please enter valid loan amount and interest rate.");
+        return;
+    }
+
+    const monthlyInterestRate = (interestRate / 12) / 100; // Monthly interest rate
+    const numberOfMonths = 12; // 12 months in a year
+    const emi = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfMonths));
+
+    const emiDetailsContainer = document.getElementById("emi-details");
+    emiDetailsContainer.innerHTML = ""; // Clear previous results
+
+    for (let month = 1; month <= numberOfMonths; month++) {
+        const monthlyPrincipal = loanAmount / numberOfMonths;
+        const monthlyInterest = loanAmount * monthlyInterestRate;
+        loanAmount -= monthlyPrincipal;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${month}</td>
+            <td>${monthlyPrincipal.toFixed(2)}</td>
+            <td>${monthlyInterest.toFixed(2)}</td>
+            <td>${(monthlyPrincipal + monthlyInterest).toFixed(2)}</td>
+        `;
+
+        emiDetailsContainer.appendChild(row);
+    }
+}
+
