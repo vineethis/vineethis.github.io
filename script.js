@@ -75,11 +75,23 @@ function calculateAverage() {
 
 function resetFields() {
     const inputFields = document.querySelectorAll(".input-field");
-    inputFields.forEach(field => {
-        field.value = ""; // Clear input fields
+    
+    // Remove all additional input fields created for purchases
+    const purchaseRows = document.querySelectorAll(".purchase-row");
+    purchaseRows.forEach(row => {
+        row.remove();
     });
-    purchases = []; // Clear purchases
+
+    // Clear input field values and purchases array
+    inputFields.forEach(field => {
+        field.value = "";
+    });
+    purchases = [];
+
+    // Clear the calculation results
     document.getElementById("average-price").textContent = "N/A";
-    document.getElementById("purchase-values-list").innerHTML = ""; // Clear the list
+    document.getElementById("purchase-values-list").innerHTML = "";
     document.getElementById("total-investment").textContent = "N/A";
+}
+
 }
