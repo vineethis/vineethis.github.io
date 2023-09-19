@@ -71,14 +71,16 @@ function calculateAverage() {
 function calculateEMI() {
     const loanAmount = parseFloat(document.getElementById("loan-amount").value);
     const interestRate = parseFloat(document.getElementById("interest-rate").value);
+    const loanDuration = parseFloat(document.getElementById("loan-duration").value);
+    const durationUnit = document.getElementById("duration-unit").value;
 
-    if (isNaN(loanAmount) || isNaN(interestRate)) {
-        alert("Please enter valid loan amount and interest rate.");
+    if (isNaN(loanAmount) || isNaN(interestRate) || isNaN(loanDuration)) {
+        alert("Please enter valid loan amount, interest rate, and loan duration.");
         return;
     }
 
+    const numberOfMonths = durationUnit === "months" ? loanDuration : loanDuration * 12;
     const monthlyInterestRate = (interestRate / 12) / 100; // Monthly interest rate
-    const numberOfMonths = 12; // 12 months in a year
     const emi = (loanAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfMonths));
 
     const emiDetailsContainer = document.getElementById("emi-details");
@@ -102,3 +104,4 @@ function calculateEMI() {
         emiDetailsContainer.appendChild(row);
     }
 }
+
