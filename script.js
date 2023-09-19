@@ -10,15 +10,15 @@ function addPurchase() {
     quantityInput.type = "number";
     quantityInput.classList.add("input-field");
 
-    const purchaseRow = document.createElement("div");
-    purchaseRow.classList.add("purchase-row");
-
     // Create new labels for each purchase
     const priceLabel = document.createElement("label");
     priceLabel.textContent = "Price:";
 
     const quantityLabel = document.createElement("label");
     quantityLabel.textContent = "Quantity:";
+
+    const purchaseRow = document.createElement("div");
+    purchaseRow.classList.add("purchase-row");
 
     purchaseRow.appendChild(priceLabel);
     purchaseRow.appendChild(priceInput);
