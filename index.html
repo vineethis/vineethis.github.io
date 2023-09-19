@@ -3,28 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share Price Calculator</title>
+    <title>Share Price Calculator - Calculate Average Share Price</title>
+    <meta name="description" content="Calculate the average share price of your investments with our simple Share Price Calculator. Easily track your investments and make informed decisions.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Share Price Calculator</h1>
-    <div class="input-container">
-        <div id="purchase-inputs">
-            <div class="purchase-row">
-                <label for="price">Price:</label>
-                <input type="number" class="input-field" step="0.01">
-                <label for="quantity">Quantity:</label>
-                <input type="number" class="input-field">
-            </div>
+    <header>
+        <h1>Share Price Calculator</h1>
+    </header>
+    <main>
+        <div class="input-container">
+            <section id="purchase-inputs">
+                <article class="purchase-row">
+                    <label for="price">Price:</label>
+                    <input type="number" class="input-field" step="0.01">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" class="input-field">
+                </article>
+            </section>
+            <button onclick="addPurchase()">Add Purchase</button>
+            <button onclick="calculateAverage()">Compute Average</button>
         </div>
-        <button onclick="addPurchase()">Add Purchase</button>
-        <button onclick="calculateAverage()">Compute Average</button>
-    </div>
-    <div id="result-container">
-        <p>Average Share Price: <span id="average-price">N/A</span></p>
-        <p>Purchase Values: <span id="purchase-values"></span></p>
-        <p>Total Investment: <span id="total-investment"></span></p>
-    </div>
+        <div id="result-container">
+            <p>Average Share Price: <span id="average-price">N/A</span></p>
+            <p>Purchase Values:</p>
+            <ul id="purchase-values-list"></ul>
+            <p>Total Investment: <span id="total-investment">N/A</span></p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Share Price Calculator</p>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
