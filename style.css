@@ -6,8 +6,9 @@ body, h1, p, label, input, button {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #e0e0e0; /* Light blue background */
+    background-color: #e0e0e0; /* Light blue background for body */
     text-align: center;
+    color: black; /* Set the default text color to black */
 }
 
 header {
@@ -17,7 +18,7 @@ header {
 }
 
 main {
-    background-color: #fff;
+    background-color: #fff; /* White background for the main content */
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -34,14 +35,16 @@ label {
     width: 80px;
     text-align: right;
     margin-right: 10px;
-    font-weight: bold;
+    font-weight: normal;
+    font-size: 14px;
 }
 
 .input-field {
-    width: 300px; /* Increased width to 200px */
-    padding: 3px;
+    width: 200px;
+    padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 1px;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 button {
@@ -74,6 +77,6 @@ button:hover {
 }
 
 #purchase-values-list li {
-    font-weight: bold;
+    font-weight: normal;
     color: #333;
 }
