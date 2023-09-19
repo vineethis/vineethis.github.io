@@ -38,10 +38,10 @@ label {
 }
 
 .input-field {
-    width: 200px; /* Increased width to 200px */
-    padding: 5px;
+    width: 300px; /* Increased width to 200px */
+    padding: 3px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 1px;
 }
 
 button {
