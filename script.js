@@ -49,6 +49,22 @@ function calculateAverage() {
     const totalInvestment = purchaseValues.reduce((total, value) => total + value, "");
 
     document.getElementById("average-price").textContent = averagePrice.toFixed(2);
-    document.getElementById("purchase-values").textContent = purchaseValues.join("\n");
+    document.getElementById("purchase-values-list").innerHTML = ""; // Clear the list
+    purchaseValues.forEach(value => {
+        const li = document.createElement("li");
+        li.textContent = value;
+        document.getElementById("purchase-values-list").appendChild(li);
+    });
     document.getElementById("total-investment").textContent = totalInvestment;
+}
+
+function resetFields() {
+    const inputFields = document.querySelectorAll(".input-field");
+    inputFields.forEach(field => {
+        field.value = ""; // Clear input fields
+    });
+    purchases = []; // Clear purchases
+    document.getElementById("average-price").textContent = "N/A";
+    document.getElementById("purchase-values-list").innerHTML = ""; // Clear the list
+    document.getElementById("total-investment").textContent = "N/A";
 }
