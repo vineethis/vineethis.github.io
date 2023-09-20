@@ -111,6 +111,9 @@ function calculateEMI() {
 
     totalInterestAmountElement.textContent = totalInterestAmount.toFixed(2);
     totalAmountToPayElement.textContent = (loanAmount + totalInterestAmount).toFixed(2);
+
+    // Display the "Download EMI Table" button once EMI is calculated
+    document.getElementById("download-emi-button").style.display = "block";
 }
 
 function exportToCSV(tableId) {
