@@ -20,7 +20,8 @@
     <div class="container">
         <a href="index.html" class="back-link">Back to Stock Average Price Calculator</a> <!-- Move the link to the top right corner -->
         <h1>EMI Calculator</h1>
-        <button onclick="exportToCSV('emi-details')" class="download-button-top-left">Download</button> <!-- Move the button to the top left corner and rename it to "Download" -->
+        <!-- Rename and initially hide the "Download EMI Table" button -->
+        <button onclick="exportToCSV('emi-details')" class="download-button-top-left" id="download-emi-button" style="display:none;">Download EMI Table</button>
         <div class="calculator">
             <label for="loan-amount">Loan Amount:</label>
             <input type="number" id="loan-amount" class="input-field">
