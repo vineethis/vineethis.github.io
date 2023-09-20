@@ -117,9 +117,9 @@ function exportToCSV(tableId) {
     const table = document.getElementById(tableId);
     const rows = table.querySelectorAll("tr");
     const csv = [];
-    
+
     for (const row of rows) {
-        const cols = row.querySelectorAll("td, th");
+        const cols = row.querySelectorAll("td");
         const rowData = Array.from(cols).map(col => col.textContent);
         csv.push(rowData.join(","));
     }
