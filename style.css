@@ -107,6 +107,7 @@ button:hover {
 .emi-table td {
     border: 1px solid #ccc;
     padding: 10px;
+    white-space: nowrap; /* Prevent text from wrapping */
 }
 
 .download-button {
