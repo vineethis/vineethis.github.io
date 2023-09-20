@@ -68,6 +68,8 @@ function calculateAverage() {
     document.getElementById("total-investment").innerHTML = `<span class="bold">Total Investment:</span> ${totalInvestment.toFixed(2)}`;
 }
 
+let emiCalculated = false; // To track whether EMI has been calculated
+
 function calculateEMI() {
     const loanAmount = parseFloat(document.getElementById("loan-amount").value);
     const interestRate = parseFloat(document.getElementById("interest-rate").value);
@@ -113,8 +115,13 @@ function calculateEMI() {
     totalAmountToPayElement.textContent = (loanAmount + totalInterestAmount).toFixed(2);
 
     // Display the "Download EMI Table" button once EMI is calculated
-    document.getElementById("download-emi-button").style.display = "block";
-       // Add table headers to the displayed table
+    if (!emiCalculated) {
+        emiCalculated = true;
+        addTableHeaders(); // Call this function to add headers only once
+    }
+}
+
+function addTableHeaders() {
     const table = document.querySelector(".emi-table");
     const headerRow = table.createTHead().insertRow(0);
     const headers = ["Month", "Principal", "Interest", "Total Payment"];
