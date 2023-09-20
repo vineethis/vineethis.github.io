@@ -114,10 +114,16 @@ function calculateEMI() {
 
     // Display the "Download EMI Table" button once EMI is calculated
     document.getElementById("download-emi-button").style.display = "block";
-     // Add table headers to the displayed table
+        // Add table headers to the displayed table
     const table = document.querySelector(".emi-table");
-    const headerRow = document.querySelector(".emi-table thead tr");
-    headerRow.innerHTML = "<th>Month</th><th>Principal</th><th>Interest</th><th>Total Payment</th>";
+    const headerRow = table.createTHead().insertRow(0);
+    const headers = ["Month", "Principal", "Interest", "Total Payment"];
+
+    for (let i = 0; i < headers.length; i++) {
+        const headerCell = document.createElement("th");
+        headerCell.textContent = headers[i];
+        headerRow.appendChild(headerCell);
+    }
 }
 
 function exportToCSV(tableId) {
@@ -125,14 +131,8 @@ function exportToCSV(tableId) {
     const rows = table.querySelectorAll("tr");
     const csv = [];
 
-// Extract column headers from the header row
-    const headerRow = rows[0];
-    const headers = headerRow.querySelectorAll("th");
-    const headerData = Array.from(headers).map(header => header.textContent);
-    csv.push(headerData.join(","));
-
-    for (let i = 1; i < rows.length; i++) {
-        const cols = rows[i].querySelectorAll("td");
+    for (let i = 0; i < rows.length; i++) {
+        const cols = rows[i].querySelectorAll("td, th");
         const rowData = Array.from(cols).map(col => col.textContent);
         csv.push(rowData.join(","));
     }
