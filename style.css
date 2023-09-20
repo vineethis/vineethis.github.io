@@ -5,10 +5,10 @@ body, h1, p, label, input, button {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e0e0e0; /* Light blue background for body */
+    font-family: Poppins, sans-serif;
+    background-color: #f5f5f5; /* Light gray background for body */
     text-align: center;
-    color: black; /* Set the default text color to black */
+    color: #333; /* Set the default text color to dark gray */
 }
 
 header {
@@ -36,7 +36,7 @@ label {
     text-align: right;
     margin-right: 10px;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .input-field {
@@ -44,7 +44,8 @@ label {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 button {
@@ -55,6 +56,8 @@ button {
     margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
@@ -80,76 +83,3 @@ button:hover {
     font-weight: normal;
     color: #333;
 }
-
-
-
-/* EMI Calculator Styles */
-.container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.calculator {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.input-field {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-.calculate-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.calculate-button:hover {
-    background-color: #555;
-}
-
-.result-container {
-    margin-top: 20px;
-}
-
-.emi-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.emi-table th, .emi-table td {
-    text-align: center;
-    padding: 8px;
-    border: 1px solid #ccc;
-}
-
-.back-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
