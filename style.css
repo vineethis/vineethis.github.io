@@ -5,7 +5,7 @@ body, h1, p, label, input, button {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: Poppins, sans-serif;
     background-color: #f5f5f5; /* Light gray background for body */
     text-align: center;
     color: #333; /* Set the default text color to dark gray */
@@ -14,98 +14,13 @@ body {
 header {
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
-    font-size: 24px;
-    font-weight: bold;
+    padding: 10px;
 }
 
-main {
-    background-color: #fff; /* White background for the main content */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+.container {
+    text-align: left;
     margin: 20px auto;
     max-width: 400px;
-}
-
-.purchase-row {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.input-field {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-    background-color: #555;
-}
-
-#result-container {
-    margin-top: 30px;
-    font-size: 18px;
-}
-
-#total-interest-amount, #total-amount-to-pay {
-    font-weight: bold;
-    color: #333;
-}
-
-#emi-details {
-    margin-top: 20px;
-}
-
-.emi-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-}
-
-.emi-table th, .emi-table td {
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-.download-button-top-left {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.download-button-top-left:hover {
-    background-color: #555;
 }
 
 .calculator-container {
@@ -119,4 +34,67 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.input-field {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#result-container {
+    margin-top: 20px;
+}
+
+.emi-summary {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+#emi-table-header {
+    background-color: #333;
+    color: #fff;
+}
+
+.emi-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.emi-table th, .emi-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
 }
