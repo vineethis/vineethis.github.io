@@ -125,8 +125,14 @@ function exportToCSV(tableId) {
     const rows = table.querySelectorAll("tr");
     const csv = [];
 
-    for (const row of rows) {
-        const cols = row.querySelectorAll("td");
+// Extract column headers from the header row
+    const headerRow = rows[0];
+    const headers = headerRow.querySelectorAll("th");
+    const headerData = Array.from(headers).map(header => header.textContent);
+    csv.push(headerData.join(","));
+
+    for (let i = 1; i < rows.length; i++) {
+        const cols = rows[i].querySelectorAll("td");
         const rowData = Array.from(cols).map(col => col.textContent);
         csv.push(rowData.join(","));
     }
