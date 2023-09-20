@@ -140,5 +140,3 @@ function exportToCSV(tableId) {
     document.body.appendChild(link);
     link.click();
 }
-
-
