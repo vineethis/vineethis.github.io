@@ -114,6 +114,10 @@ function calculateEMI() {
 
     // Display the "Download EMI Table" button once EMI is calculated
     document.getElementById("download-emi-button").style.display = "block";
+     // Add table headers to the displayed table
+    const table = document.querySelector(".emi-table");
+    const headerRow = document.querySelector(".emi-table thead tr");
+    headerRow.innerHTML = "<th>Month</th><th>Principal</th><th>Interest</th><th>Total Payment</th>";
 }
 
 function exportToCSV(tableId) {
