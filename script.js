@@ -114,22 +114,10 @@ function calculateEMI() {
     totalInterestAmountElement.textContent = totalInterestAmount.toFixed(2);
     totalAmountToPayElement.textContent = (loanAmount + totalInterestAmount).toFixed(2);
 
-    // Display the "Download EMI Table" button once EMI is calculated
+    // Display the table header once EMI is calculated
     if (!emiCalculated) {
+        document.getElementById("emi-table-header").style.display = "table-row";
         emiCalculated = true;
-        addTableHeaders(); // Call this function to add headers only once
-    }
-}
-
-function addTableHeaders() {
-    const table = document.querySelector(".emi-table");
-    const headerRow = table.createTHead().insertRow(0);
-    const headers = ["Month", "Principal", "Interest", "Total Payment"];
-
-    for (let i = 0; i < headers.length; i++) {
-        const headerCell = document.createElement("th");
-        headerCell.textContent = headers[i];
-        headerRow.appendChild(headerCell);
     }
 }
 
@@ -152,3 +140,5 @@ function exportToCSV(tableId) {
     document.body.appendChild(link);
     link.click();
 }
+
+
