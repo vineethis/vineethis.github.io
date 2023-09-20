@@ -98,14 +98,15 @@ button:hover {
     text-align: center;
 }
 
-.emi-table th, .emi-table td {
-    border: 1px solid #ccc;
+.emi-table th {
+    background-color: #333;
+    color: #fff;
     padding: 10px;
 }
 
-#emi-table-header {
-    background-color: #333;
-    color: #fff;
+.emi-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
 }
 
 .download-button {
