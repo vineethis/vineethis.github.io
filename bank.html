@@ -35,25 +35,25 @@
             <!-- Move the "Download EMI Table" button here -->
             <button onclick="exportToCSV('emi-details')" class="download-button-left" id="download-emi-button" style="display:none;">Download EMI Table</button>
         </div>
-        <div id="result-container">
-            <div class="emi-summary">
-                <p>Total Interest Amount: <span id="total-interest-amount">0.00</span></p>
-                <p>Total Amount to be Paid: <span id="total-amount-to-pay">0.00</span></p>
+       <div id="result-container">
+                <div class="emi-summary">
+                    <p>Total Interest Amount: <span id="total-interest-amount">0.00</span></p>
+                    <p>Total Amount to be Paid: <span id="total-amount-to-pay">0.00</span></p>
+                </div>
+                <table class="emi-table">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Principal</th>
+                            <th>Interest</th>
+                            <th>Total Payment</th>
+                        </tr>
+                    </thead>
+                    <tbody id="emi-details">
+                        <!-- EMI calculation results will be displayed here -->
+                    </tbody>
+                </table>
             </div>
-            <table class="emi-table">
-                <thead>
-                    <tr>
-                        <th>Month</th>
-                        <th>Principal</th>
-                        <th>Interest</th>
-                        <th>Total Payment</th>
-                    </tr>
-                </thead>
-                <tbody id="emi-details">
-                    <!-- EMI calculation results will be displayed here -->
-                </tbody>
-            </table>
-        </div>
     </div>
     <script src="script.js"></script>
 </body>
