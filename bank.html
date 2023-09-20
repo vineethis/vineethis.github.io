@@ -20,8 +20,6 @@
     <div class="container">
         <a href="index.html" class="back-link">Back to Stock Average Price Calculator</a> <!-- Move the link to the top right corner -->
         <h1>EMI Calculator</h1>
-        <!-- Rename and initially hide the "Download EMI Table" button -->
-        <button onclick="exportToCSV('emi-details')" class="download-button-top-left" id="download-emi-button" style="display:none;">Download EMI Table</button>
         <div class="calculator">
             <label for="loan-amount">Loan Amount:</label>
             <input type="number" id="loan-amount" class="input-field">
@@ -34,6 +32,8 @@
                 <option value="years">Years</option>
             </select>
             <button onclick="calculateEMI()" class="calculate-button">Calculate EMI</button>
+            <!-- Move the "Download EMI Table" button here -->
+            <button onclick="exportToCSV('emi-details')" class="download-button-left" id="download-emi-button" style="display:none;">Download EMI Table</button>
         </div>
         <div id="result-container">
             <div class="emi-summary">
